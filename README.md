@@ -1,23 +1,86 @@
-# Plugin Repository Clone and Setup Instructions
+Assim que eu queria
+# PickClassStarUml (StarUML Extension)
 
-To clone the plugin repository, follow these steps:
+Extensão para o **StarUML** que gera uma planilha **.xlsx** com os cálculos **FI / FIT / LIF** e a seção **Integration order** (ordem sugerida de integração das classes).
 
-1. Open your preferred terminal or command prompt.
-2. Navigate to the following location: `C:/Users/USER/AppData/Roaming/StarUML/extensions/user`.
-3. Execute the command: `git clone <repository-url>`. Replace `<repository-url>` with the actual URL of the plugin repository.
-4. Wait for the cloning process to complete.
+---
 
-After cloning the repository, ensure that the `PickClassStarUml` folder has been successfully created in the mentioned location. Also, make sure to install its dependencies.
+## Requisitos (Windows)
 
-To use the XLSX file generation and lodash modules of the plugin, you need to install Node. The recommended version is v18.14.0.
+- StarUML instalado
+- Git instalado
+- Node.js instalado (o npm vem junto)
+- Yarn v1 (ex.: **1.22.19**)
 
-Additionally, you need to install Yarn, as it is the tool responsible for managing the versioning of the plugin's dependencies. The recommended version is v1.22.19.
+> Se você já tem Node e npm, normalmente só falta o Yarn.
 
-Once Node and Yarn are installed, follow the steps below:
+---
 
-1. Open the terminal or command prompt.
-2. Navigate to the root folder of your project.
-3. Execute the command: `yarn install`. This will download and install all the dependencies listed in the `package.json` file of your project.
-4. Wait for the installation to finish.
+## Instalação (passo a passo)
 
-Congratulations! You have successfully cloned the plugin repository, created the necessary folder, and installed the dependencies for your project.
+### 1) Abrir o PowerShell
+
+### 2) Ir para a pasta de extensões do StarUML
+Copie e cole:
+
+```powershell
+cd "$env:APPDATA\StarUML\extensions\user"
+```
+### 3) Clonar o repositório do plugin
+
+Copie e cole:
+
+```powershell
+git clone https://github.com/YanPaivaAndrade/PickClassStarUml.git
+```
+Ao final, deve existir a pasta:
+%APPDATA%\StarUML\extensions\user\PickClassStarUml
+
+### 4) Entrar na pasta do plugin
+
+Copie e cole:
+
+```powershell
+cd ".\PickClassStarUml"
+```
+
+### 5) Instalar o Yarn (se não tiver)
+
+Primeiro, teste:
+
+```powershell
+yarn -v
+```
+Se aparecer “yarn não é reconhecido”, instale o Yarn v1:
+
+```powershell
+npm i -g yarn@1.22.19
+```
+
+Depois feche e abra o PowerShell e confirme:
+```powershell
+yarn -v
+```
+
+### 6) Instalar as dependências do plugin
+
+Ainda dentro da pasta do plugin, rode:
+
+```powershell
+yarn install
+```
+
+### 7) Reiniciar o StarUML
+
+Feche o StarUML e abra novamente.
+
+
+## Como usar
+
+Abra seu arquivo .mdj (ou .mfj) no StarUML
+
+Vá no menu PickClass
+
+Clique em Generate document
+
+O StarUML vai gerar/baixar um arquivo .xlsx com os resultados (FI/FIT/LIF + Integration order)
